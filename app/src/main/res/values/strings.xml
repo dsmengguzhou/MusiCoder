@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Coder</string>
+
+    <string name="md">Material Design</string>
+    <string name="material">Material</string>
+    <string name="recycler">RecyclerView</string>
+
+    <string name="line">线性布局</string>
+    <string name="smoothline">滑动隐藏布局</string>
+    <string name="grid">网格布局</string>
+    <string name="stragged">瀑布流</string>
+</resources>
