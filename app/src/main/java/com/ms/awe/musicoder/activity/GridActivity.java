@@ -1,5 +1,6 @@
 package com.ms.awe.musicoder.activity;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
@@ -12,7 +13,9 @@ import android.support.v7.widget.Toolbar;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.text.TextUtils;
 import android.util.TypedValue;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -50,9 +53,6 @@ public class GridActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grid);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
         initViews();
         setListener();
 
@@ -60,6 +60,23 @@ public class GridActivity extends AppCompatActivity {
     }
 
     private void initViews() {
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("好看的小姐姐");                           //设置主标题
+        toolbar.inflateMenu(R.menu.base_toolbar_menu);              //设置Menu
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.action_item1:
+                        Toast.makeText(GridActivity.this,"好看的小姐姐Item1",Toast.LENGTH_SHORT).show();
+                        finish();
+                        break;
+                }
+                return true;
+            }
+        });
+
         coordinatorLayout = (CoordinatorLayout) findViewById(R.id.grid_coordinatorLayout);
 
         recyclerView = (RecyclerView) findViewById(R.id.grid_recycler);
@@ -188,6 +205,9 @@ public class GridActivity extends AppCompatActivity {
                         public void onItemClick(View view) {
                             int position = recyclerView.getChildAdapterPosition(view);
                             SnackbarUtil.ShortSnackbar(coordinatorLayout, "点击第" + position + "个", SnackbarUtil.Info).show();
+                            Intent intent = new Intent(GridActivity.this,RecyclerDetailActivity.class);
+                            intent.putExtra("url",meizis.get(position).getUrl());
+                            startActivity(intent);
                         }
 
                         @Override

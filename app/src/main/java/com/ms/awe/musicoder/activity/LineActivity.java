@@ -1,6 +1,7 @@
 package com.ms.awe.musicoder.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.os.AsyncTask;
@@ -11,16 +12,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.support.v7.widget.Toolbar;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -72,6 +76,36 @@ public class LineActivity extends AppCompatActivity{
     }
 
     private void initViews() {
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        toolbar.setNavigationIcon(R.mipmap.icon_butterfly);         //设置导航栏图标
+//        toolbar.setLogo(R.mipmap.icon_cat);                         //设置app logo
+        toolbar.setTitle("好看的小姐姐");                           //设置主标题
+//        toolbar.setSubtitle("真的是好看的小姐姐");                  //设置子标题
+        toolbar.inflateMenu(R.menu.base_toolbar_menu);              //设置Menu
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.action_item1:
+                        Toast.makeText(LineActivity.this,"好看的小姐姐Item1",Toast.LENGTH_SHORT).show();
+                        finish();
+                        break;
+//                    case R.id.action_item2:
+//                        Toast.makeText(LineActivity.this,"好看的小姐姐Item2",Toast.LENGTH_SHORT).show();
+//                        break;
+//                    case R.id.action_item3:
+//                        Toast.makeText(LineActivity.this,"好看的小姐姐Item3",Toast.LENGTH_SHORT).show();
+//                        break;
+//                    case R.id.action_item4:
+//                        Toast.makeText(LineActivity.this,"好看的小姐姐Item4",Toast.LENGTH_SHORT).show();
+//                        break;
+                }
+                return true;
+            }
+        });
+
+
         coordinatorLayout = (CoordinatorLayout) findViewById(R.id.line_coordinatorLayout);
 
         recyclerView = (RecyclerView) findViewById(R.id.line_recycler);
@@ -174,6 +208,8 @@ public class LineActivity extends AppCompatActivity{
         screenwidth = outMetrics.widthPixels;
     }
 
+
+
     private class GetData extends AsyncTask<String, Integer, String> {
 
         @Override
@@ -260,6 +296,9 @@ public class LineActivity extends AppCompatActivity{
         public void onClick(View view) {
             int position = recyclerView.getChildAdapterPosition(view);
             SnackbarUtil.ShortSnackbar(coordinatorLayout, "点击第" + position + "个", SnackbarUtil.Info).show();
+            Intent intent = new Intent(LineActivity.this,RecyclerDetailActivity.class);
+            intent.putExtra("url",meizis.get(position).getUrl());
+            startActivity(intent);
         }
 
         /**

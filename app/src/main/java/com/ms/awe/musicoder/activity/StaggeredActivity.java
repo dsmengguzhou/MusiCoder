@@ -1,5 +1,6 @@
 package com.ms.awe.musicoder.activity;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
@@ -11,7 +12,9 @@ import android.support.v7.widget.Toolbar;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.text.TextUtils;
 import android.util.TypedValue;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -48,9 +51,6 @@ public class StaggeredActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_staggered);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
         initView();
         setListener();
 
@@ -59,6 +59,23 @@ public class StaggeredActivity extends AppCompatActivity {
     }
 
     private void initView() {
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("好看的小姐姐");                           //设置主标题
+        toolbar.inflateMenu(R.menu.base_toolbar_menu);              //设置Menu
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.action_item1:
+                        Toast.makeText(StaggeredActivity.this,"好看的小姐姐Item1",Toast.LENGTH_SHORT).show();
+                        finish();
+                        break;
+                }
+                return true;
+            }
+        });
+
         coordinatorLayout = (CoordinatorLayout) findViewById(R.id.staggered_coordinatorLayout);
 
         recyclerview = (RecyclerView) findViewById(R.id.staggered_recycler);
@@ -184,6 +201,9 @@ public class StaggeredActivity extends AppCompatActivity {
                         public void onItemClick(View view) {
                             int position = recyclerview.getChildAdapterPosition(view);
                             SnackbarUtil.ShortSnackbar(coordinatorLayout, "点击第" + position + "个", SnackbarUtil.Info).show();
+                            Intent intent = new Intent(StaggeredActivity.this,RecyclerDetailActivity.class);
+                            intent.putExtra("url",meizis.get(position).getUrl());
+                            startActivity(intent);
                         }
 
                         @Override

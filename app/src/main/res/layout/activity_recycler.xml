@@ -12,7 +12,8 @@
         android:text="@string/line"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_btn_dark"/>
 
     <Button
         android:id="@+id/btn_smoothline"
@@ -20,7 +21,9 @@
         android:layout_height="wrap_content"
         android:text="@string/smoothline"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" />
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_btn_dark"/>
 
     <Button
         android:id="@+id/btn_grid"
@@ -28,7 +31,9 @@
         android:layout_height="wrap_content"
         android:text="@string/grid"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" />
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_btn_dark"/>
 
     <Button
         android:id="@+id/btn_stragged"
@@ -36,7 +41,9 @@
         android:layout_height="wrap_content"
         android:text="@string/stragged"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" />
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_btn_dark"/>
 
     <ImageView
         android:layout_width="wrap_content"

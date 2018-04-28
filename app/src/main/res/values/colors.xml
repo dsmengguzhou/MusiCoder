@@ -9,4 +9,12 @@
     <color name="recyclerBackground">#E6CAFF</color>
 
     <color name="pink">#FFC1E0</color>
+    <color name="orange">#FFD1A4</color>
+    <color name="white">#FFFFFF</color>
+    <color name="green">#82D900</color>
+    <color name="purple">#9F35FF</color>
+    <color name="deeppurple">#6F00D2</color>
+    <color name="red">#FF0000</color>
+    <color name="blue">#0080FF</color>
+    <color name="black">#000000</color>
 </resources>
