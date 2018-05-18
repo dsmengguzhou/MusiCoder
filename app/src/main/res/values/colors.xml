@@ -17,4 +17,6 @@
     <color name="red">#FF0000</color>
     <color name="blue">#0080FF</color>
     <color name="black">#000000</color>
+
+    <color name="read_bgcolor">#ffeeeeee</color>
 </resources>

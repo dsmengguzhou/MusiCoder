@@ -12,14 +12,13 @@
         android:roundIcon="@mipmap/icon_ha"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MaterialActivity" />
         <activity android:name=".activity.RecyclerActivity" />
         <activity
             android:name=".activity.LineActivity"
@@ -35,6 +34,21 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.RecyclerDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.MaterialActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.LoginSuccessActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.AnswerActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.ms.awe.musicoder.activity.AnswerQuestionActivity"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
 

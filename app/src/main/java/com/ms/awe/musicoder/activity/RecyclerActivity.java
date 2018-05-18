@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.ms.awe.musicoder.R;
@@ -19,6 +20,7 @@ public class RecyclerActivity extends AppCompatActivity implements View.OnClickL
     private Button btnSmoothLine;
     private Button btnGrid;
     private Button btnStragged;
+    private ImageView imgElephant;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,11 +39,13 @@ public class RecyclerActivity extends AppCompatActivity implements View.OnClickL
         btnSmoothLine = (Button) findViewById(R.id.btn_smoothline);
         btnGrid = (Button) findViewById(R.id.btn_grid);
         btnStragged = (Button) findViewById(R.id.btn_stragged);
+        imgElephant = (ImageView) findViewById(R.id.img_elephant);
 
         btnLine.setOnClickListener(this);
         btnSmoothLine.setOnClickListener(this);
         btnGrid.setOnClickListener(this);
         btnStragged.setOnClickListener(this);
+        imgElephant.setOnClickListener(this);
     }
 
     @Override
@@ -63,6 +67,9 @@ public class RecyclerActivity extends AppCompatActivity implements View.OnClickL
             case R.id.btn_stragged:
                 intent = new Intent(RecyclerActivity.this,StaggeredActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.img_elephant:
+                finish();
                 break;
             default:
 

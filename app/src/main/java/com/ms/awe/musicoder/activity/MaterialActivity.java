@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.ms.awe.musicoder.R;
@@ -15,6 +16,7 @@ import com.ms.awe.musicoder.R;
 public class MaterialActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Button btnMaterial;
+    private ImageView imgRabbit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,9 @@ public class MaterialActivity extends AppCompatActivity implements View.OnClickL
 
     private void initViews() {
         btnMaterial = (Button) findViewById(R.id.btn_material);
+        imgRabbit = (ImageView) findViewById(R.id.img_rabbit);
+
+        imgRabbit.setOnClickListener(this);
         btnMaterial.setOnClickListener(this);
     }
 
@@ -37,6 +42,8 @@ public class MaterialActivity extends AppCompatActivity implements View.OnClickL
             case R.id.btn_material:
                 Toast.makeText(MaterialActivity.this,"迟点总结这部分",Toast.LENGTH_SHORT).show();
                 break;
+            case R.id.img_rabbit:
+                finish();
             default:
 
                 break;

@@ -9,4 +9,13 @@
     <string name="smoothline">滑动隐藏布局</string>
     <string name="grid">网格布局</string>
     <string name="stragged">瀑布流</string>
+
+    <string name="username">USERNAME</string>
+    <string name="password">PASSWORD</string>
+    <string name="login">Login</string>
+    <string name="clear">Clear</string>
+
+    <string name="answer">答题功能</string>
+    <string name="answer1">答题1.0</string>
+    <string name="answer2">答题2.0</string>
 </resources>
